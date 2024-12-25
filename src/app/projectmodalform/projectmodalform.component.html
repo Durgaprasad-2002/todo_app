@@ -1,0 +1,35 @@
+<div
+  class="modal-body-1"
+  [ngClass]="{ 'modal-visible-1': !showModal, 'modal-hidden-1': showModal }"
+>
+  <div class="modal">
+    <form (submit)="SubmitForm()" [formGroup]="myFormp">
+      <div class="modal-header">
+        <h4>Add New Project</h4>
+        <button class="close-btn" (click)="hideModal()">⨉</button>
+      </div>
+      <div class="modal-body-inner">
+        <div class="input-container">
+          <label for=""> Name of the Task </label>
+          <input
+            type="text"
+            placeholder="Text"
+            required
+            class="input-field"
+            name="projectName"
+            formControlName="projectName"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="submit-btn"
+          type="submit"
+          [disabled]="!myFormp.valid || isSubmitting"
+        >
+          {{ isSubmitting ? "Adding..." : "Add" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

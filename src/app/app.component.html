@@ -1,0 +1,50 @@
+<div class="body-container">
+  <div class="side-body">
+    <app-sidebar
+      [isSidebarVisible]="isSidebarVisible"
+      [projects]="projects"
+    ></app-sidebar>
+  </div>
+  <div class="body">
+    <div class="header">
+      <button
+        class="toggle-btn"
+        (click)="toggleSidebar()"
+        [ngStyle]="{ position: isSidebarVisible ? 'fixed' : 'absolute' }"
+      >
+        <span *ngIf="!isSidebarVisible">☰</span>
+        <span *ngIf="isSidebarVisible">⨉</span>
+      </button>
+      <h2>{{ projectName || "No Projects Created" }}</h2>
+    </div>
+    <div class="body-tasks-container">
+      <app-taskholder
+        [items]="tasks.todo"
+        title="To Do"
+        name="todo"
+      ></app-taskholder>
+      <app-taskholder
+        [items]="tasks['inprogress']"
+        title="In Progress"
+        name="inprogress"
+      ></app-taskholder>
+      <app-taskholder
+        [items]="tasks['inreview']"
+        title="In Review"
+        name="inreview"
+      >
+      </app-taskholder>
+      <app-taskholder
+        [items]="tasks['completed']"
+        title="Completed"
+        name="completed"
+      ></app-taskholder>
+    </div>
+  </div>
+</div>
+<app-projectmodalform></app-projectmodalform>
+<!-- app.component.html -->
+<div>
+  <!-- Other content -->
+  <app-modalform></app-modalform>
+</div>

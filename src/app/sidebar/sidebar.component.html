@@ -1,0 +1,23 @@
+<div class="side-bar-body" [ngClass]="{ 'show-side-bar': isSidebarVisible }">
+  <div class="header-side-bar">
+    <img src="logo.avif" class="logo" />
+    <h2>Task boards</h2>
+  </div>
+  <div class="side-bar-projects">
+    <div
+      class="project-side-bar"
+      [ngClass]="{ 'active-side': isindex(i) }"
+      (click)="setActiveIndex(i, project)"
+      *ngFor="let project of projects; let i = index"
+    >
+      {{ project.name }}
+    </div>
+    <div class="project-side-bar" *ngIf="projects.length == 0">
+      No Projects Created
+    </div>
+  </div>
+
+  <button class="new-project-btn" (click)="showModal()">
+    + Add new Project
+  </button>
+</div>

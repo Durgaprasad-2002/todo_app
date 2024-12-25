@@ -1,0 +1,89 @@
+:host {
+  --font-primary: Exuberant, "Arial Unicode MS", Arial, Helvetica, sans-serif;
+  --color-primary: rgb(14, 18, 147);
+  --color-secondary: rgb(207, 208, 237);
+  --color-inprogress: rgb(205, 2, 205);
+  --color-inprogress-bg: rgb(239, 198, 239);
+  --color-inreview: rgb(12, 161, 224);
+  --color-inreview-bg: rgb(224, 241, 248);
+  --color-completed: rgb(0, 117, 0);
+  --color-completed-bg: rgb(203, 246, 203);
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.task {
+  font-family: Exuberant, "Arial Unicode MS", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 12px;
+}
+
+.task-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.7px;
+}
+
+.dates-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.date-box {
+  text-align: left;
+}
+
+.date-box p {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.date-box span {
+  display: inline-block;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.add-project-btn {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.inprogress .date-box span,
+.inprogress.add-project-btn {
+  background: var(--color-inprogress-bg);
+  color: var(--color-inprogress);
+}
+
+.inreview .date-box span,
+.inreview.add-project-btn {
+  background: var(--color-inreview-bg);
+  color: var(--color-inreview);
+}
+
+.completed .date-box span,
+.completed.add-project-btn {
+  background: var(--color-completed-bg);
+  color: var(--color-completed);
+}

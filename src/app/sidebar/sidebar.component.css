@@ -1,0 +1,86 @@
+.side-bar-body {
+  z-index: 10;
+  margin: 0;
+  width: 250px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  font-family: Exuberant, "Arial Unicode MS", Arial, Helvetica, sans-serif;
+}
+
+.logo {
+  width: 30px;
+  height: auto;
+}
+
+.header-side-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 20px;
+  border-bottom: 1.4px solid rgb(234, 231, 231);
+}
+
+.header-side-bar h2 {
+  padding: 10px;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.side-bar-projects {
+  padding: 10px;
+  height: auto;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border-bottom: 1.4px solid rgb(234, 231, 231);
+}
+
+.project-side-bar {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.active-side {
+  background-color: rgb(229, 222, 245);
+}
+
+.new-project-btn {
+  border: none;
+  background: none;
+  text-align: center;
+  margin: 10px 10px;
+  padding: 10px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.new-project-btn:hover {
+  background-color: green;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .side-bar-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(-100%);
+  }
+
+  .side-bar-body.show-side-bar {
+    transform: translateX(0);
+  }
+}

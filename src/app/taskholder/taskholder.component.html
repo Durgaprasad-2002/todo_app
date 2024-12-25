@@ -1,0 +1,13 @@
+<div class="task-holder {{ name }}">
+  <h3 class="heading-tasks">
+    {{ title }}
+  </h3>
+  <div class="tasks-container">
+    <div *ngFor="let item of items; let i = index" (click)="update(item, name)">
+      <app-task [data]="item" [name]="name"></app-task>
+    </div>
+    <button (click)="showModal()" class="add-project-btn {{ name }}">
+      + Add new
+    </button>
+  </div>
+</div>

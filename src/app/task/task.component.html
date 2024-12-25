@@ -1,0 +1,13 @@
+<div class="task {{ name }}">
+  <h3 class="task-title">{{ data.taskname }}</h3>
+  <div class="dates-container">
+    <div class="date-box">
+      <p>Start date</p>
+      <span>{{ data.startdate | date : "dd/MM/yyyy" }}</span>
+    </div>
+    <div class="date-box">
+      <p>Deadline</p>
+      <span>{{ data.enddate | date : "dd/MM/yyyy" }}</span>
+    </div>
+  </div>
+</div>

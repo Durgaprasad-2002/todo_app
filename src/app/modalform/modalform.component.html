@@ -1,0 +1,73 @@
+<div class="modal-body modal-visible" *ngIf="!showModal">
+  <div class="modal">
+    <form (ngSubmit)="SubmitForm($event)" [formGroup]="myForm">
+      <div class="modal-header">
+        <h4>{{ isEdit ? "Edit Task" : "Add New Task" }}</h4>
+        <button class="close-btn" type="button" (click)="hideModal()">⨉</button>
+      </div>
+      <div class="modal-body-inner">
+        <div class="input-container">
+          <label for=""> Name of the Task </label>
+          <input
+            type="text"
+            placeholder="Text"
+            required
+            class="input-field"
+            name="taskName"
+            formControlName="taskName"
+          />
+        </div>
+        <div class="fields-container">
+          <div class="input-container">
+            <label for=""> Start date </label>
+            <input
+              type="date"
+              required
+              class="input-field"
+              name="startDate"
+              formControlName="startDate"
+            />
+          </div>
+          <div class="input-container">
+            <label for=""> End date</label>
+            <input
+              type="date"
+              required
+              class="input-field"
+              name="endDate"
+              formControlName="endDate"
+            />
+          </div>
+        </div>
+        <div class="dropdown-container">
+          <label for="status-select">Status</label>
+          <select
+            id="status-select"
+            class="dropdown"
+            name="status"
+            formControlName="status"
+          >
+            <option value="completed">Completed</option>
+            <option value="inprogress">In Progress</option>
+            <option value="inreview">In Review</option>
+            <option value="todo">To Do</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          *ngIf="isEdit"
+          class="submit-btn"
+          type="button"
+          (click)="delete()"
+          [disabled]="isSubmitting"
+        >
+          {{ isSubmitting ? "Deleting..." : "Delete" }}
+        </button>
+        <button class="submit-btn" type="submit" [disabled]="isSubmitting">
+          {{ isSubmitting ? "Adding..." : "Add" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
